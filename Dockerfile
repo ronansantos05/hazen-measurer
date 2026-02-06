@@ -8,10 +8,13 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+
+RUN python -m pip install --upgrade pip && \
+    pip install --no-cache-dir --default-timeout=300 --retries 10 -r requirements.txt
 
 COPY . .
 
 EXPOSE 8501
 
 CMD ["streamlit", "run", "app.py", "--server.address=0.0.0.0", "--server.port=8501", "--server.headless=true"]
+
