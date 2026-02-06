@@ -1,8 +1,5 @@
-streamlit
-pandas
-numpy
-scipy
-openpyxl
-plotly
-reportlab
-kaleido
+streamlit==1.54.0
+pandas==2.3.3
+numpy==2.2.6
+scipy==1.15.2
+plotly==6.5.2
